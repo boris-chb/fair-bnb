@@ -2,16 +2,16 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
-import Button from "../Button";
+import Button from "../ui/Button";
 
 interface ModalProps {
-  isOpen?: boolean;
+  actionLabel: string;
   onClose: () => void;
   onSubmit: () => void;
-  actionLabel: string;
+  isOpen?: boolean;
   title?: string;
   body?: React.ReactElement;
-  footer: React.ReactElement;
+  footer?: React.ReactElement;
   disabled?: boolean;
   secondaryAction?: () => void;
   secondaryActionLabel?: string;
@@ -79,7 +79,7 @@ const Modal: React.FC<ModalProps> = ({
                 <div className="text-lg font-semibold">{title}</div>
               </div>
               {/* BODY */}
-              <div className="relative flex-auto p-6">BODY</div>
+              <div className="relative flex-auto p-6">{body}</div>
               {/* FOOTER */}
               <div className="flex flex-col gap-2 p-6">
                 <div className="flex w-full flex-row items-center gap-4">
