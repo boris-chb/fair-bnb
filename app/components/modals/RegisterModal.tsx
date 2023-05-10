@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import useRegisterModal from "@/app/hooks/useRegisterModal";
-import axios from "axios";
-import { useState } from "react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { AiFillGithub } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
-import Modal from "./Modal";
-import Heading from "../ui/Heading";
-import Input from "../inputs/Input";
-import { toast } from "react-hot-toast";
-import Button from "../ui/Button";
+import useRegisterModal from '@/app/hooks/useRegisterModal';
+import axios from 'axios';
+import { useState } from 'react';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { AiFillGithub } from 'react-icons/ai';
+import { FcGoogle } from 'react-icons/fc';
+import Modal from './Modal';
+import Heading from '../ui/Heading';
+import Input from '../inputs/Input';
+import { toast } from 'react-hot-toast';
+import Button from '../ui/Button';
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -21,9 +21,9 @@ const RegisterModal = () => {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-      name: "",
-      email: "",
-      password: "",
+      name: '',
+      email: '',
+      password: '',
     },
   });
 
@@ -31,9 +31,9 @@ const RegisterModal = () => {
     setIsLoading(true);
 
     axios
-      .post("/api/register", data)
+      .post('/api/register', data)
       .then(() => registerModal.onClose())
-      .catch((err) => toast.error("Could not register"))
+      .catch((err) => toast.error('Could not register'))
       .finally(() => setIsLoading(false));
   };
 
